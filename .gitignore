@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/furonten/node_modules
+/furonten/.pnp
+furonten/.pnp.js
+
+# testing
+/furonten/coverage
+
+# production
+/furonten/build
+
+# misc
+furonten/.DS_Store
+furonten/.env.local
+furonten/.env.development.local
+furonten/.env.test.local
+furonten/.env.production.local
+
+furonten/npm-debug.log*
+furonten/yarn-debug.log*
+furonten/yarn-error.log*
