@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import path
+
+from .views import upload_newsletter, get_recipients, add_recipient, send_newsletter
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/upload-newsletter', upload_newsletter),
+    path('api/recipients', get_recipients),
+    path('api/recipients/add', add_recipient),
+    path('api/send-newsletter', send_newsletter),
 ]

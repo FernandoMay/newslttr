@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #61dafb;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,56 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  background-color: #ECF8F9;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  color: #eee3cb;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #E55807;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #7E1717;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #068DA9;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
 }

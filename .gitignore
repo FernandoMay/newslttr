@@ -21,3 +21,5 @@ furonten/.env.production.local
 furonten/npm-debug.log*
 furonten/yarn-debug.log*
 furonten/yarn-error.log*
+
+.gitignore
