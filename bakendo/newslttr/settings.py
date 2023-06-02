@@ -70,16 +70,62 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'newslttr.wsgi.application'
 
+# settings.py
+
+import os
+
+# AWS S3 configuration
+AWS_ACCESS_KEY_ID = 'AKIAZYII6RTCDEHBR6C3'
+AWS_SECRET_ACCESS_KEY = '9ySzn4NqB27TPCqInvNAA2ffr/rNYKuZfVUc1nFH'
+AWS_STORAGE_BUCKET_NAME = 'chvpkdslc3b6'
+AWS_S3_REGION_NAME = 'us-east-2'  # e.g., 'us-west-1'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+
+# Static files configuration
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# Media files configuration
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+
+# Database configuration
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'newsletter_db',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'database',  # Docker Compose service name
+        'PORT': 5432,
+    }
+}
+
+# Email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'miamispace710@gmail.com'
+EMAIL_HOST_PASSWORD = 'plfumkvzgpxbtjwb'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = 'miamispace710@gmail.com'
+
+# Celery configuration
+CELERY_BROKER_URL = 'redis://redis:6379/0'
+CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
+
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

@@ -1,0 +1,38 @@
+# Base image
+FROM python:3.10-slim-buster
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set work directory
+WORKDIR /app
+
+# Install dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        libpq-dev \
+        libjpeg-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install pipenv
+RUN pip install --upgrade pip \
+    && pip install pipenv
+
+# Install project dependencies
+COPY bakendo/Pipfile bakendo/Pipfile.lock /app/
+RUN pipenv install --deploy --system
+
+# Copy project files
+COPY bakendo /app/
+
+# Run migrations and collect static files (if needed)
+RUN python manage.py migrate
+# RUN python manage.py collectstatic --no-input
+
+# Expose the Django development server port
+EXPOSE 8000
+
+# Run the Django development server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

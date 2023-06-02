@@ -5,7 +5,7 @@ Este proyecto consiste en una aplicación de envío de boletines (newsletter) qu
 ## Estructura del proyecto
 
 - El directorio `bakendo` contiene la aplicación backend en Django, junto con el archivo de configuración `Dockerfile` y el archivo `requirements.txt` con las dependencias del proyecto.
-- El directorio `forunten` contiene la aplicación frontend en React, junto con el archivo de configuración `Dockerfile`, el archivo `.env` para variables de entorno y el archivo `package.json` con las dependencias del proyecto.
+- El directorio `furonten` contiene la aplicación frontend en React, junto con el archivo de configuración `Dockerfile`, el archivo `.env` para variables de entorno y el archivo `package.json` con las dependencias del proyecto.
 - El archivo `docker-compose.yml` se utiliza para orquestar los contenedores Docker de ambas aplicaciones y definir la configuración de la red y los volúmenes.
 
 ## Configuración
@@ -19,7 +19,7 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado Docker en tu entorn
 
 ### Configuración de la aplicación frontend
 
-1. En el directorio `forunten`, configura las variables de entorno necesarias en el archivo `.env`.
+1. En el directorio `furonten`, configura las variables de entorno necesarias en el archivo `.env`.
 
 ### Configuración de AWS
 
